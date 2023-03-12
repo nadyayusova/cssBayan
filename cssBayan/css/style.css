@@ -76,7 +76,6 @@ body {
 .accordion {
   padding-top: 1em;
   border-bottom: 0.05em solid grey;
-  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -93,81 +92,77 @@ body {
 .accordion__element {
   border-top: 0.05em solid grey;
 }
+/*-------------------------------RADIO-LABEL---------------------------------------*/
+.accordion__radio {
+  display: block;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
 
-.accordion__element.is-active .accordion__header {
+.accordion__radio:checked ~ .accordion__label .accordion__header {
   color: black;
 }
 
-.accordion__element.is-active .accordion__icon svg {
+.accordion__radio:checked ~ .accordion__label .accordion__icon svg {
   transform: rotate(90deg) translateZ(0);
 }
 
-.accordion__element.is-active .accordion__content {
+.accordion__radio:checked ~ .accordion__label .accordion__content {
   padding: 0.5em 0;
 }
 
 @media (min-width: 820px) {
-  .accordion__element.is-active .accordion__content {
+  .accordion__radio:checked ~ .accordion__label .accordion__content {
     padding: 1em 0;
   }
 }
 
 @media (min-width: 1920px) {
-  .accordion__element.is-active .accordion__content {
+  .accordion__radio:checked ~ .accordion__label .accordion__content {
     padding: 2em 0;
   }
 }
 
-.accordion__element.is-active .accordion__img {
+.accordion__radio:checked ~ .accordion__label .accordion__img {
   height: 50vw;
   opacity: 1;
   transform: scale(1);
 }
 
 @media (min-width: 820px) {
-  .accordion__element.is-active .accordion__img {
+  .accordion__radio:checked ~ .accordion__label .accordion__img {
     height: 35vh;
   }
 }
 
 @media (min-width: 1920px) {
-  .accordion__element.is-active .accordion__img {
+  .accordion__radio:checked ~ .accordion__label .accordion__img {
     height: 30vh;
   }
 }
 
-@media (hover: hover) {
-  .accordion__element:hover .accordion__icon svg {
-    transform: rotate(90deg) translateZ(0);
-  }
-
-  .accordion__element:hover .accordion__content {
-    padding: 0.5em 0;
-  }
-
-  .accordion__element:hover .accordion__img {
-    height: 50vw;
-    opacity: 1;
-    transform: scale(1);
-  }
+.accordion__label {
+  display: block;
+  cursor: pointer;
 }
 
-/* для проверяющих - без этого блока на тач-устройствах не работает */
-@media (hover: none) and (pointer: coarse) {
-  .accordion__element:hover .accordion__header {
-    color: black;
-  }
-
-  .accordion__element:hover .accordion__icon svg {
-    opacity: 1;
+@media (hover: hover) {
+  .accordion__label:hover .accordion__icon svg {
     transform: rotate(90deg) translateZ(0);
   }
 
-  .accordion__element:hover .accordion__content {
+  .accordion__label:hover .accordion__content {
     padding: 0.5em 0;
   }
 
-  .accordion__element:hover .accordion__img {
+  .accordion__label:hover .accordion__img {
     height: 50vw;
     opacity: 1;
     transform: scale(1);
@@ -175,30 +170,30 @@ body {
 }
 
 @media (hover: hover) and (min-width: 820px) {
-  .accordion__element:hover .accordion__content {
+  .accordion__label:hover .accordion__content {
     padding: 1em 0;
   }
   
-  .accordion__element:hover .accordion__img {
+  .accordion__label:hover .accordion__img {
     height: 35vh;
   }
 }
 
 @media (hover: hover) and (min-width: 1920px) {
-  .accordion__element:hover .accordion__content {
+  .accordion__label:hover .accordion__content {
     padding: 2em 0;
   }
 
-  .accordion__element:hover .accordion__img {
+  .accordion__label:hover .accordion__img {
     height: 30vh;
   }
 }
 
-.accordion__element:active .accordion__header {
+.accordion__label:active .accordion__header {
   color: blue;
 }
 
-.accordion__element:active .accordion__img {
+.accordion__label:active .accordion__img {
   opacity: 0.5;
 }
 /*--------------------------------HEADER---------------------------------------------*/
